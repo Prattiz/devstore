@@ -7,3 +7,4 @@ to make read.me
 - React [ Next.js ]
 - TypeScript
 - Tailwind CSS
+- Zod
