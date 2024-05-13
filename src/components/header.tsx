@@ -2,7 +2,9 @@ import Link from "next/link";
 import { Search, ShoppingBag } from "lucide-react";
 import Image from "next/image";
 
+
 export function Header(){
+
     return (
         <div className="flex items-center justify-between">
 
@@ -35,8 +37,8 @@ export function Header(){
                 <div className="w-px h-4 bg-zinc-700"/>
 
                 <Link href='/' className="flex items-center gap-2 hover:underline">
-                    <Image  
-                        src='https://github.com/prattiz.png' 
+                    <Image 
+                        src='/user.svg' 
                         className='w-9 h-9 rounded-full' 
                         width={24} height={24} 
                         alt=""

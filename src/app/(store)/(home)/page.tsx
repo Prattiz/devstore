@@ -8,15 +8,19 @@ export async function getFeaturedProducts(): Promise<ProductProps[]>{
     
     const response = await api('/products/featured', {
         next: {
-            revalidate: 60 * 60 // 1 hr
+            revalidate: 60 * 60 * 24 // 1 day
         }
     });
+
     const products = await response.json()
 
     return products
 }
 
+
 export default async function Home(){
+
+  
 
     const [ highLightedProduct, ...otherProduct ] = await getFeaturedProducts();
 
@@ -25,7 +29,8 @@ export default async function Home(){
 
             <Link 
                 href={`/product/${highLightedProduct.slug}`} 
-                className="group relative col-span-6 row-span-6 rounded-lg bg-zinc-900 overflow-hidden flex justify-center"
+                className="group relative col-span-6 row-span-6 rounded-lg
+                bg-zinc-900 overflow-hidden flex justify-center"
             >
                 <Image
                     className="group-hover:scale-105 transition-transform duration-500" 
@@ -42,7 +47,8 @@ export default async function Home(){
                     <span className="text-sm truncate">{highLightedProduct.title}</span>
 
                     <span 
-                        className="flex h-full items-center justify-center rounded-full bg-violet-500 px-4 font-semibold"
+                        className="flex h-full items-center justify-center rounded-full 
+                        bg-violet-500 px-4 font-semibold"
                     >
                         { PriceFormater(highLightedProduct.price) }
                     </span>
@@ -55,7 +61,8 @@ export default async function Home(){
                 return(
                     <Link 
                         href={`/product/${item.slug}`} 
-                        className="group relative col-span-3 row-span-3 rounded-lg bg-zinc-900 overflow-hidden flex justify-center"
+                        className="group relative col-span-3 row-span-3 rounded-lg
+                         bg-zinc-900 overflow-hidden flex justify-center"
                     >
                         <Image
                             className="group-hover:scale-105 transition-transform duration-500" 

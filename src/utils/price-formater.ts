@@ -1,4 +1,4 @@
-export function PriceFormater(item: any){
+export function PriceFormater(item: number){
 
     const response = item.toLocaleString('pt-BR', {
         style: 'currency',
@@ -6,6 +6,6 @@ export function PriceFormater(item: any){
         maximumFractionDigits: 0,
         minimumFractionDigits: 0,
     });
-    
+
     return response;
 }
