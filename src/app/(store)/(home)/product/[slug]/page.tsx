@@ -2,6 +2,7 @@ import { api } from '@/data/api';
 import { ProductProps } from '@/data/types/product';
 import { PriceFormater } from '@/utils/price-formater';
 import Image from 'next/image'
+import { Metadata } from 'next/types';
 
 
 interface ProductPageProps{
@@ -22,6 +23,28 @@ export async function getSlugProduct(slug: string): Promise<ProductProps> {
     const product = await response.json()
 
     return product;
+}
+
+
+export async function generateMetadata({ params }: ProductPageProps): Promise<Metadata> {
+
+  const product = await getSlugProduct(params.slug);
+
+  return {
+    title: product.title,
+  }
+}
+
+
+export async function generateStaticParams() {
+
+  const response = await api('/products/featured');
+  const products: ProductProps[] = await response.json();
+
+  return products.map((product) => {
+    return { slug: product.slug }
+  })
+  
 }
 
 

@@ -20,8 +20,6 @@ export async function getFeaturedProducts(): Promise<ProductProps[]>{
 
 export default async function Home(){
 
-  
-
     const [ highLightedProduct, ...otherProduct ] = await getFeaturedProducts();
 
     return( 
