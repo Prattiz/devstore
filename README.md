@@ -13,3 +13,4 @@ to make read.me
 ## Technical abilities -->
 
 - E2E Tests
+- Skeleton Screens
