@@ -8,3 +8,8 @@ to make read.me
 - TypeScript
 - Tailwind CSS
 - Zod
+- Cypress
+
+## Technical abilities -->
+
+- E2E Tests
