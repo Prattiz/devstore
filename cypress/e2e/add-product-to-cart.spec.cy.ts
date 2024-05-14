@@ -31,7 +31,7 @@ describe('Add Product To Cart', () => {
 
   it('should be able to search for a product and add it to the cart', () => {
 
-    cy.get('input[name=q]').type('moletom').parent('form').submit()
+    cy.searchByQuery('moletom')
 
     cy.get('a[href^="/product"]').first().click()
 
@@ -40,5 +40,6 @@ describe('Add Product To Cart', () => {
     cy.contains('Adicionar ao carrinho').click()
 
     cy.contains('Cart (1)').should('exist')
-  })
+  });
+
 })
