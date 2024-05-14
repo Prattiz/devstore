@@ -49,7 +49,7 @@ export default async function Search({ searchParams }: SearchProps) {
           products.map((item) => {
             return (
               <Link
-                href={item.slug}
+                href={`/product/${item.slug}`}
                 className="group relative rounded-lg bg-zinc-900 overflow-hidden flex justify-center items-end"
               >
                 <Image
