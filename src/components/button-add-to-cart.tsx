@@ -1,6 +1,7 @@
 'use client'
 
 import { useCart } from "@/context/cart-context";
+import { useRouter } from "next/navigation";
 
 
 interface ButtonAddToCartProps{
@@ -10,11 +11,14 @@ interface ButtonAddToCartProps{
 
 export function ButtonAddToCart({ productId }: ButtonAddToCartProps){
     
-    const { addToCart } = useCart()
+    const { addToCart } = useCart();
+    const router = useRouter();
+    
 
     function handleAddToCart(){
 
         addToCart(productId)
+        router.push('/') 
     }
     return(
         <button

@@ -17,6 +17,7 @@ const CartContext = createContext({} as CartContextProps);
 export function CartContextProvider({ children }: { children: ReactNode }){
 
     const [ cartItems, setCartItems] = useState<CartItems[]>([]);
+    
 
     function addToCart(productId: number){
 
@@ -38,6 +39,7 @@ export function CartContextProvider({ children }: { children: ReactNode }){
                 return [...state, { productId, indexQuantity: 1}]
             }
         });  
+        
     }
 
     
